@@ -15,16 +15,27 @@ You need to install the necessary packages, if they are not installed.
 
 Load the required packages.
 > library("snow")
+
 > library("sp")
+
 > library("ggplot2")
+
 > library("raster")
+
 > library("rgdal")
+
 > library("pbkrtest")
+
 > library("stats")
+
 > library("e1071")
+
 > library("lme4")
+
 > library("lattice")
+
 > library("randomForest")
+
 > library("caret")
 
 ### Load the data in R
@@ -48,18 +59,28 @@ Indicate a field with classes
 
 ### Extracting training pixels values
 > dfAll = data.frame(matrix(vector(), 0, length(names(img)) + 1))
+
 > for (i in 1:length(unique(trainData[[responseCol]]))){
+
 >   category <- unique(trainData[[responseCol]])[i]
+
 >   categorymap <- trainData[trainData[[responseCol]] == category,]
+
 >   dataSet <- extract(img, categorymap)
+
 >   dataSet <- dataSet[!unlist(lapply(dataSet, is.null))]
+
 >   dataSet <- lapply(dataSet, function(x){cbind(x, class = as.numeric(rep(category, nrow(x))))})
+
 >   df <- do.call("rbind", dataSet)
+
 >   dfAll <- rbind(dfAll, df)
+
 > }
 
 Generate random samples for training the RandomForests models (For a start, 10000 random samples). 
 > nsamples <- 10000
+
 > sdfAll <- subset(dfAll[sample(1:nrow(dfAll), nsamples), ])
 
 ### Model fitting and image classification
@@ -84,16 +105,27 @@ Open the terminal and start **R** again.
 
 Load the packages.
 > library("snow")
+
 > library("sp")
+
 > library("ggplot2")
+
 > library("raster")
+
 > library("rgdal")
+
 > library("pbkrtest")
+
 > library("stats")
+
 > library("e1071")
+
 > library("lme4")
+
 > library("lattice")
+
 > library("randomForest")
+
 > library("caret")
 
 Set working directory with the data.
@@ -105,13 +137,15 @@ Load previously created R objects.
 ### Create a raster with predictions
 Use the 'clusterR' function from the **raster** package, which supports multi-core computations for functions such as forecasting.
 > beginCluster()
+
 > preds_rf <- clusterR(img, raster::predict, args = list(model = modFit_rf))
+
 > endCluster()
 
 Display the result of the classification
 > plot(preds_rf)
 
-# Save the raster to a 'GeoTiff' file
+Save the raster to a 'GeoTiff' file
 > writeRaster(preds_rf, filename="ResultClassification.tif", format = "GTiff", datatype='INT1U', overwrite=TRUE)
 
 
