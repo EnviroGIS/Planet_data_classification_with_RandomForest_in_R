@@ -17,10 +17,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>302728.74174531409516931</xmin>
-      <ymin>5493253.75541664659976959</ymin>
-      <xmax>311296.74174531409516931</xmax>
-      <ymax>5496617.95541669428348541</ymax>
+      <xmin>302129.73997540201526135</xmin>
+      <ymin>5493288.82355824206024408</ymin>
+      <xmax>310697.73997540201526135</xmax>
+      <ymax>5496653.0235582897439599</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -72,7 +72,7 @@
     </legendlayer>
   </legend>
   <projectlayers>
-    <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+    <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
       <extent>
         <xmin>302998.77795630652690306</xmin>
         <ymin>5493013.90209486708045006</ymin>
@@ -108,7 +108,6 @@
       <edittypes>
         <edittype widgetv2type="ValueMap" name="Class">
           <widgetv2config fieldEditable="1" labelOnTop="0">
-            <value key="alder" value="2"/>
             <value key="aspen" value="1"/>
             <value key="other" value="5"/>
             <value key="water" value="4"/>
@@ -116,7 +115,6 @@
         </edittype>
         <edittype widgetv2type="ValueMap" name="Type">
           <widgetv2config fieldEditable="1" labelOnTop="0">
-            <value key="alder" value="alder"/>
             <value key="aspen" value="aspen"/>
             <value key="other" value="other"/>
             <value key="water" value="water"/>
@@ -126,10 +124,9 @@
       <renderer-v2 attr="Class" forceraster="0" symbollevels="0" type="categorizedSymbol" enableorderby="0">
         <categories>
           <category render="true" symbol="0" value="1" label="aspen"/>
-          <category render="true" symbol="1" value="2" label="alder"/>
-          <category render="true" symbol="2" value="4" label="water"/>
-          <category render="true" symbol="3" value="5" label="other"/>
-          <category render="true" symbol="4" value="" label=""/>
+          <category render="true" symbol="1" value="4" label="water"/>
+          <category render="true" symbol="2" value="5" label="other"/>
+          <category render="true" symbol="3" value="" label=""/>
         </categories>
         <symbols>
           <symbol alpha="1" clip_to_extent="1" type="fill" name="0">
@@ -150,21 +147,6 @@
           <symbol alpha="1" clip_to_extent="1" type="fill" name="1">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="color" v="168,0,161,86"/>
-              <prop k="joinstyle" v="bevel"/>
-              <prop k="offset" v="0,0"/>
-              <prop k="offset_map_unit_scale" v="0,0,0,0,0,0"/>
-              <prop k="offset_unit" v="MM"/>
-              <prop k="outline_color" v="255,45,248,255"/>
-              <prop k="outline_style" v="solid"/>
-              <prop k="outline_width" v="0.86"/>
-              <prop k="outline_width_unit" v="MM"/>
-              <prop k="style" v="solid"/>
-            </layer>
-          </symbol>
-          <symbol alpha="1" clip_to_extent="1" type="fill" name="2">
-            <layer pass="0" class="SimpleFill" locked="0">
-              <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
               <prop k="color" v="107,172,255,128"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="offset" v="0,0"/>
@@ -177,7 +159,7 @@
               <prop k="style" v="solid"/>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" type="fill" name="3">
+          <symbol alpha="1" clip_to_extent="1" type="fill" name="2">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
               <prop k="color" v="253,191,111,127"/>
@@ -192,7 +174,7 @@
               <prop k="style" v="solid"/>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" type="fill" name="4">
+          <symbol alpha="1" clip_to_extent="1" type="fill" name="3">
             <layer pass="0" class="SimpleFill" locked="0">
               <prop k="border_width_map_unit_scale" v="0,0,0,0,0,0"/>
               <prop k="color" v="255,118,120,255"/>
@@ -395,7 +377,7 @@
         <selectedonly on=""/>
       </labelattributes>
       <SingleCategoryDiagramRenderer diagramType="Pie">
-        <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" sizeType="MM" minScaleDenominator="0">
+        <DiagramCategory penColor="#000000" labelPlacementMethod="XHeight" penWidth="0" diagramOrientation="Up" minimumSize="0" barWidth="5" penAlpha="255" maxScaleDenominator="1e+08" backgroundColor="#ffffff" transparency="0" width="15" scaleDependency="Area" backgroundAlpha="255" angleOffset="1440" scaleBasedVisibility="0" enabled="0" height="15" sizeType="MM" minScaleDenominator="-4.65661e-10">
           <fontProperties description="Noto Sans,9,-1,5,50,0,0,0,0,0" style=""/>
           <attribute field="" color="#000000" label=""/>
         </DiagramCategory>
@@ -471,9 +453,8 @@ def my_form_open(dialog, layer, feature):
         <rasterrenderer opacity="1" alphaBand="-1" classificationMax="5" classificationMinMaxOrigin="CumulativeCutFullExtentEstimated" band="1" classificationMin="1" type="singlebandpseudocolor">
           <rasterTransparency/>
           <rastershader>
-            <colorrampshader colorRampType="INTERPOLATED" clip="0">
+            <colorrampshader colorRampType="EXACT" clip="0">
               <item alpha="255" value="1" label="Осина" color="#b2df8a"/>
-              <item alpha="255" value="2" label="Ольха" color="#a800a1"/>
               <item alpha="255" value="4" label="Вода" color="#0f4bff"/>
               <item alpha="0" value="5" label="Другое" color="#33a02c"/>
             </colorrampshader>
