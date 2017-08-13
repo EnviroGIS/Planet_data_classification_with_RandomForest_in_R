@@ -3,6 +3,8 @@ Author of ideas [Ali Santacruz](https://github.com/amsantac). [Video in Youtube]
 
 The algorithm is adapted for classification of [PlanetScope](https://www.planet.com/) data. [PlanetScope Imagery Products specification](https://www.planet.com/docs/spec-sheets/sat-imagery/). 
 
+Example data in the [PlanetDataExample](./PlanetDataExample/) folder.
+
 ## Step-by-step instruction
 
 ### Start R and load the packages
@@ -11,7 +13,7 @@ Start **R** in terminal
 R
 ```
 
-We will need these packages: 'snow', 'sp', 'ggplot2', 'raster','rgdal', 'pbkrtest', 'stats', 'e1071', 'lme4', 'lattice', 'randomForest', 'caret'.
+We will need these packages: `snow`, `sp`, `ggplot2`, `raster`, `rgdal`, `pbkrtest`, `stats`, `e1071`, `lme4`, `lattice`, `randomForest`, `caret`.
 You need to install the necessary packages, if they are not installed.
 ```{r}
 install.packages(c("snow", "sp", "ggplot2", "raster", "rgdal", "pbkrtest", "stats", "e1071", "lme4", "lattice", "randomForest", "caret"), dependencies = TRUE)
@@ -94,7 +96,16 @@ modFit_rf <- train(as.factor(class) ~ B1 + B2 + B3 + B4, method = "rf", data = s
 ```
 
 ### Free up computer memory and CPU
-After the previous step, the computer hangs, and can not start the data classification.
+If a large amount of data was taken into the analysis, then after the previous step the computer may hang and can not begin classification of the data.
+
+To check the memory status, run the command:
+```{r}
+beginCluster()
+```
+If it returns: `4 cores detected, using 3`, etc. Go to step [Create a raster with predictions](#create-a-raster-with-predictions)
+
+If it returns: `ERROR: Free cores not found`, etc. You need to free up memory and CPU. 
+
 To free memory and CPU, you need to close **R** with the save of history and workspace.
 ```{r}
 q("yes")
@@ -139,7 +150,7 @@ loadhistory(file=".Rhistory")
 ```
 
 ### Create a raster with predictions
-Use the 'clusterR' function from the **raster** package, which supports multi-core computations for functions such as forecasting.
+Use the `clusterR` function from the **raster** package, which supports multi-core computations for functions such as forecasting.
 ```{r}
 beginCluster()
 preds_rf <- clusterR(img, raster::predict, args = list(model = modFit_rf))
@@ -151,7 +162,7 @@ Display the result of the classification
 plot(preds_rf)
 ```
 
-Save the raster to a 'GeoTiff' file
+Save the raster to a `GeoTiff` file
 ```{r}
 writeRaster(preds_rf, filename="ResultClassification.tif", format = "GTiff", datatype='INT1U', overwrite=TRUE)
 ```
