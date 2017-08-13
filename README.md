@@ -155,7 +155,10 @@ Save the raster to a 'GeoTiff' file
 ```{r}
 writeRaster(preds_rf, filename="ResultClassification.tif", format = "GTiff", datatype='INT1U', overwrite=TRUE)
 ```
+
 Close **R** with the save of history and workspace.
+```{r}
 q("yes")
+```
 
 
