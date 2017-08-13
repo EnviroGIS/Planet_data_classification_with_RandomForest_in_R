@@ -36,3 +36,4 @@ preds_rf <- clusterR(img, raster::predict, args = list(model = modFit_rf))
 endCluster()
 
 output = preds_rf
+
